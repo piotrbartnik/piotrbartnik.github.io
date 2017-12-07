@@ -259,7 +259,7 @@
       var radioM = document.getElementById("man").checked;
       var radioW = document.getElementById("woman").checked;
       
-      var regExMail = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+      var regExMail = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})/;
       var regExTel = /[0-9]{9}/
       var regExDate = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[012])-(19|20)\d\d$/
       var mailCheck = regExMail.test(mail);
@@ -279,7 +279,7 @@
         } else {
         document.getElementById("surname").className = 'text__valid';
         }
-        if (!mailCheck || mail == 0){
+        if (!mailCheck){
         document.getElementById("email").className = 'text__error';
         var checking = false;
         } else {
