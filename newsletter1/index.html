@@ -28,7 +28,7 @@
     }
 
   .form {
-    background-image: url("background.jpg");
+    background-image: url("img/background.jpg");
     height: 570px;
     width: 800px;
     background-size: 100% 100%;
@@ -86,7 +86,7 @@
     text-align: left;
     padding-bottom: 15px;
     line-height: 180%;
-    list-style-image: url("listimage.jpg");
+    list-style-image: url("img/listimage.jpg");
   }
 
   .textinputs input[type=text] {
@@ -182,20 +182,6 @@
       font-family: 'Lato', sans-serif;;
     }
 
-    .radios {
-      float: right;
-      font-family: 'Oswald', sans-serif;
-      text-decoration: underline;
-      text-shadow: #ffffff 1px 1px 1px; 
-      font-weight: 700;
-      letter-spacing: 3px;
-      clear: both;
-      margin-right: 20%;
-      margin-left: 20%;
-      padding-bottom: 30px;
-      padding-right: 30px;
-    }
-
     .button input[type=submit] {
       margin: 0px 10% 10px 30px; 
       clear: both;
@@ -244,11 +230,12 @@
     
       <div class="footer">
         <p class="text4">HARLEY-DAVIDSON&reg; KATOWICE</p>
+      </div>
+      
      <script>
-
    
   function checkValid() {
-     var all = document.getElementById("harleyForm").getElementsByTagName("input");
+      var all = document.getElementById("harleyForm").getElementsByTagName("input");
       var name = document.getElementById("name");
       var surname = document.getElementById("surname").value;
       var mail = document.getElementById("email").value;
@@ -303,10 +290,9 @@
         document.getElementById("birthdate").className = 'text__valid'; 
         }
         if (radioW == false && radioM == false){
-          document.getElementById("man").className = 'radio__error';
-          document.getElementById("woman").className = 'radio__error';
+        document.getElementById("man").className = 'radio__error';
+        document.getElementById("woman").className = 'radio__error';
         var checking = false;
-        console.log(radioM)
         }
 
         if (checking == false) {
@@ -315,9 +301,7 @@
           return true;      
      }
   }
-
-
-    
+  
     </script>     
     </body>
     </html>
