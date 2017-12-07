@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <meta charset="UTF-8">
+    <title>Adamed</title>
+    <link rel="Shortcut icon" href="img/shortcut.jpg"/>
+    <link href="https://fonts.googleapis.com/css?family=Mukta" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <style>
+    
+html {
+    border: 0px;
+}
+
+/* --table styles-- */
+
+.table {
+    margin: auto;
+    height: 785px;
+    width: 708px;
+    border-collapse: collapse;
+}
+
+#table__th {
+    border: 2px solid rgb(23, 63, 148);
+    padding: 10px;
+    height:100px;
+}
+
+#table2 {
+    border: 2px solid rgb(23, 63, 148);
+    padding-left: 15px;
+    padding-right: 5px;
+    height:145px;
+}
+
+#table3 {
+    border-left: 2px solid rgb(23, 63, 148);
+    font-size: 15px;
+    line-height: 250%;
+    height:155px;
+    padding-left: 15px;
+}
+
+#table4 {
+    border-right: 2px solid rgb(23, 63, 148);
+    height:155px;
+    padding-left: 15px;
+}
+
+#table5 {
+    border-right: 2px solid rgb(23, 63, 148);
+    border-left: 2px solid rgb(23, 63, 148);
+    padding-top: 10px;
+    padding-left: 15px;
+    font-size: 15px;
+    line-height: 120%;
+}
+
+#table6 {
+    border-left: 2px solid rgb(23, 63, 148);
+    padding: 12px;
+    font-size: 12px;
+    line-height: 200%;
+    height:200px;
+    width: 50%;
+}
+
+#table7 {
+    border-right: 2px solid rgb(23, 63, 148);
+    padding: 12px;
+    font-size: 12px;
+    line-height: 200%;
+    height:200px;
+    width: 50%;
+}
+
+#table8 {
+    border-left: 2px solid rgb(23, 63, 148);
+    border-bottom: 2px solid rgb(23, 63, 148);
+    padding: 10px;
+}
+
+#table9 {
+    border-right: 2px solid rgb(23, 63, 148);
+    border-bottom: 2px solid rgb(23, 63, 148);
+    padding: 12px;
+    align-content: center
+}
+
+/* --img styles-- */
+
+.head-img {
+    width: 130px;
+    height: 80px;
+    
+}
+
+.img2 {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+
+/* --font styles-- */
+
+.font {
+    color: rgb(24, 64, 151);
+    font-family: 'Mukta', sans-serif;
+}
+
+#font__text1 {
+    font-size: 20px;
+    line-height: 90%;
+}
+
+#font__text2 {
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 30%;
+    letter-spacing: 1px;
+}
+
+#font__text3 {
+    font-size: 16px;
+    line-height: 80%;
+}
+
+.zgoda span {
+    color: rgb(99, 99, 99);
+    font-family: 'Mukta', sans-serif; 
+    display: block;
+    margin-bottom: 5px;
+    font-size: 9px;
+    float: right;
+    width: 90%;
+    line-height: 150%;
+}
+
+
+/* --button styles-- */
+
+.savebutton {
+    background-color: rgb(23, 65, 149); 
+    color: white;
+    width: 83%;
+    padding: 15px;
+    text-align: center;
+    display: block;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: BOLD;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+
+/* --input styles-- */
+
+input[type="radio"]{
+    margin: 0 5px 0 30px;
+  }
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+input[type="text"] {
+    width: 180px;
+}
+
+.label {
+    float:left;
+    padding-right:10px;
+}
+
+.field {
+    clear:both; 
+    text-align:right; 
+    }
+
+.main {
+ float:left;
+}
+
+  </style>
+  </head>
+
+  <body>
+    
+    <form name="form" id="adamed" action="database.php" method="POST">
+    <table class="table">
+
+      <th id="table__th" colspan="2">
+        <img class="head-img" src="img/head-logo.jpg">
+      </th>
+
+      <tr>
+        <td id="table2" colspan="2">
+
+        <div class="font">
+        <p id="font__text1">Chcesz otrzymywać regularnie na swoją skrzynkę porady dotyczące zdrowia, informacje ze świata medycznego?</p>
+        <p id ="font__text2">Zapisz się na newsletter GRUPY ADAMED.</p>
+        <p id="font__text3">Nie spamujemy a z newslettera możesz wypisać się w każdej chwili.</p>
+        </div>
+
+        </td>	
+      </tr>
+      
+      <tr>
+
+          <td id="table3" class="font"> 
+            <div>
+            Jestem: 
+
+            <input type="radio" name="płeć" id="woman" class="wm" value="kobieta">
+            <label for="woman">kobietą</label> 
+            <input type="radio" name="płeć" id="man" class="wm" value="mężczyzna">
+            <label for="man">mężczyzną</label>
+
+            <br> 
+
+            <div class="main">
+                <div class="field">
+                    <label for="imię" class="label">Mam na imię:</label>
+                    <input type="text" name="imię" class="name">
+                </div>
+                    <div class="field">
+                    <label for="email" class="label">Adres e-mail:</label>
+                    <input type="text" name="mail" class="email">
+                </div>
+                </div>
+
+            <br><br>
+
+            <div>
+            Jestem: 
+            <input type="radio" name="typ" id="pacjent" value="pacjent" class="doc">
+            <label for="pacjent">pacjentem</label> 
+            <input type="radio" name="typ" id="doc" value="lekarz" class="doc">
+            <label for="doc">lekarzem</label>
+            </div>
+            
+            
+           </div>
+
+          </td>
+
+          <td id="table4"> 
+
+            <img  class="img2" src="img/stetoscope.jpg">
+
+          </td>
+
+      </tr>
+      
+      <tr>
+
+          <td id="table5" class="font" colspan="2"> 
+          <div>Chcę otrzymywać porady i informacje dotyczące poniższych tematów <br/> (zaznacz jeden lub więcej tematów): 
+          </div>
+          </td>
+
+      </tr>
+
+      <tr>
+          <td id="table6" class="font" id="checkboxes">
+
+          <input type="checkbox" name="temat" id="alergie" value="alergie" class="interests">
+          <label for="alergie" >alergie</label>
+          <br>
+          <input type="checkbox" name="temat" id="ciaza" value="ciąża, poród, planowanie dziecka" class="interests">
+          <label for="ciaza">ciąża, poród, planowanie dziecka</label>
+          <br>
+          <input type="checkbox" name="temat" id="kobiece" value="choroby kobiece" class="interests">
+          <label for="kobiece">choroby kobiece</label>
+          <br>
+          <input type="checkbox" name="temat" id="serce" value="choroby serca i choroby krążeniowe" class="interests">
+          <label for="serce">choroby serca i choroby krążeniowe</label>
+          <br>
+          <input type="checkbox" name="temat" id="mocz" value="choroby ukłądu moczowego" class="interests">
+          <label for="mocz">choroby ukłądu moczowego</label>
+          <br>
+          <input type="checkbox" name="temat" id="stres" value="walka ze stresem" class="interests">
+          <label for="stres">walka ze stresem</label>
+          <br>
+          <input type="checkbox" name="temat" id="internet" value="leczenie i konsultacje przez inernet" class="interests">
+          <label for="internet">leczenie i konsultacje przez inernet</label>
+          <br>
+          <input type="checkbox" name="temat" id="sport" value="medycyna sportowa, sport" class="interests">
+          <label for="sport">medycyna sportowa, sport</label>
+          <br>
+          <input type="checkbox" name="temat" id="nowe" value="nowe terapie, nowości z rynku medycznego" class="interests">
+          <label for="nowe">nowe terapie, nowości z rynku medycznego</label>
+
+          </td>
+
+          <td id="table7" class="font">
+          
+           <input type="checkbox" name="temat" id="kosmetyki" value="kosmetyki i dermokosmetyki, problemy ze skórą" class="interests">
+           <label for="kosmetyki">kosmetyki i dermokosmetyki, problemy ze skórą</label>
+           <br>
+           <input type="checkbox" name="temat" id="dziecka" value="zdrowie dziecka, porady dla rodziców" class="interests">
+           <label for="dziecka">zdrowie dziecka, porady dla rodziców</label>
+           <br>
+           <input type="checkbox" name="temat" id="meskie" value="choroby męskie" class="interests">
+           <label for="meskie">choroby męskie</label>
+           <br>
+           <input type="checkbox" name="temat" id="oczy" value="pielęgnacja oczu" class="interests">
+           <label for="oczy">pielęgnacja oczu</label>
+           <br>
+           <input type="checkbox" name="temat" id="katar" value="choroby sezonowe" class="interests">
+           <label for="katar">choroby sezonowe (katar/grypa/przeziębienie), odporność</label>
+           <br>
+           <input type="checkbox" name="temat" id="seks" value="zdrowie seksualne" class="interests">
+           <label for="seks">zdrowie seksualne</label>
+           <br>
+           <input type="checkbox" name="temat" id="fizjo" value="fizjoterapia i rehabilitacja" class="interests">
+           <label for="fizjo">fizjoterapia i rehabilitacja</label>
+           <br>
+           <input type="checkbox" name="temat" id="psycho" value="zdrowie psychiczne, psychologia, psychiatria" class="interests">
+           <label for="psycho">zdrowie psychiczne, psychologia, psychiatria</label>
+           <br>
+           <input type="checkbox" name="temat" id="inne" value="inne" class="itnerests">
+           <label for="inne">inne</label>   
+
+          </td>  
+          
+      </tr>
+
+      <tr>
+
+          <td id="table8" class="zgoda">
+
+          <input type="checkbox" name="temat" id="zgoda" value="zgoda" class="zgoda"> 
+          <label for="zgoda"><span>Wyrażam zgodę na przetwarzanie podanego powyżej adresu 
+          e-mail przez ........., z siedzibą w .........., przy ulicy ............., pod numerem
+          56 w celach marketingowych, w tym również w celu marketingu bezpośredniego, w imieniu własnym oraz na zlecenie innych osób.</span></label> 
+
+          </td>  
+
+          <td id="table9" class="font">
+            
+          <input type="submit" class="savebutton" name="submit" value="ZAPISUJĘ SIĘ">
+
+          </td>
+      </tr>
+      </table>
+
+      <script>
+
+jQuery($("#adamed").submit(function formValidation(){
+        var wmCheck = jQuery("input[class=wm]:checked").val();
+        var name = $(".name").val();
+        var mail =$(".email").val();
+        var regExMail = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        var mailCheck = regExMail.test(mail);
+        var docCheck = jQuery("input[class=doc]:checked").val();
+        var interests = jQuery("input[class=interests]:checked").length;
+        var zgoda = jQuery("input[class=zgoda]:checked").length;
+
+        if(!wmCheck){
+            alert("Wybierz płeć");
+            return false;
+        } else if (name == ""){
+            alert("Wpisz imię");
+            return false;
+        } else if (!mailCheck || mail == 0) {
+            alert ("Wpisz prawidłowy mail");
+            return false;
+        } else if (!docCheck) {
+            alert ("Wybierz lekarz/pacjent");
+            return false;
+        } else if (interests == 0) {
+            alert ("Wybierz co najmniej jeden temat");
+            return false;
+        } else if (zgoda == 0) {
+            alert ("Potwierdz zgodę");
+            return false;
+        } else {
+            return true;
+        }
+    }));
+
+
+      </script>
+    </form>
+  </body>
+</html>
