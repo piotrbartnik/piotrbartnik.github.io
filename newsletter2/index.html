@@ -358,7 +358,7 @@ jQuery($("#adamed").submit(function formValidation(){
         var wmCheck = jQuery("input[class=wm]:checked").val();
         var name = $(".name").val();
         var mail =$(".email").val();
-        var regExMail = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        var regExMail = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})/;
         var mailCheck = regExMail.test(mail);
         var docCheck = jQuery("input[class=doc]:checked").val();
         var interests = jQuery("input[class=interests]:checked").length;
@@ -370,7 +370,7 @@ jQuery($("#adamed").submit(function formValidation(){
         } else if (name == ""){
             alert("Wpisz imię");
             return false;
-        } else if (!mailCheck || mail == 0) {
+        } else if (!mailCheck) {
             alert ("Wpisz prawidłowy mail");
             return false;
         } else if (!docCheck) {
