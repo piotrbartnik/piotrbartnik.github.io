@@ -1,0 +1,43 @@
+body {
+    background: #100a1c;
+    background-image:
+      radial-gradient(50% 30% ellipse at center top, #201e40 0%, rgba(0,0,0,0) 100%),
+      radial-gradient(60% 50% ellipse at center bottom, #261226 0%, #100a1c 100%);
+    background-attachment: fixed;
+    
+}
+
+.wrapper {
+    margin: 10% auto auto auto;
+    padding: 10px;
+    width: 30%;
+    border: 2px solid rgba(235, 240, 235, 0.842);
+    border-radius: 50px;
+    background-color: #f0ec0b;
+    text-align: center;
+}
+
+#button {
+    background-color: #4CAF50; 
+    border: 2px solid #ffffff;
+    border-radius: 7px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#button:active {
+    background: #ffffff no-repeat bottom;
+  }
+
+ #number1 {
+    margin: auto;
+    background: rgb(136, 116, 116);
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;   
+    text-align: center;
+  }

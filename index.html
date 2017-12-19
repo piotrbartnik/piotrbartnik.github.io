@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="styles.css" type='text/css' rel='stylesheet'>
+    <title>
+        And that's the second start!
+    </title>
+</head>
+<body>
+<div class="wrapper">
+ <div class="button">
+    <button onclick="los()" id="button">Losuj Lotto</button> <br/>
+    <p> Twój szczęśliwy numer to: </p><p id="number1"></p>
+</div>
+</div>
+</body>
+
+
+<script>
+var current = [];
+var HttpClient = function() {
+  this.get = function(aUrl, aCallback) {
+      var anHttpRequest = new XMLHttpRequest();
+      anHttpRequest.onreadystatechange = function() { 
+          if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+              aCallback(anHttpRequest.responseText);
+      }
+
+      anHttpRequest.open( "GET", aUrl, true );            
+      anHttpRequest.send( null );
+  }
+}
+
+var client = new HttpClient();
+client.get('http://app.lotto.pl/wyniki/?type=dl', function(response) {
+    var currentDraw = response;
+    l = currentDraw.split("\n")
+    console.log(l);
+    for (i=0; i<7;i++) {
+      current.push(l[i])
+    }
+});
+console.log(current);
+
+
+
+function los() {
+    
+  var x = [];
+  
+  for (i=1; i<50; i++) {
+    x.push(i);
+  }
+  
+  
+  var z = [];
+  for (i=0; i<6; i++) {
+    y = x.length;
+    g = Math.floor(Math.random()*y);
+    b = x[g];
+    z.push(b);
+    x.splice(g, 1);
+  
+  }
+  
+  z.sort((a, b) => {return a-b });
+  
+  document.getElementById("number1").innerHTML = z[0];
+  
+  }
+  
+</script>
+
+</html>
