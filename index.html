@@ -32,7 +32,7 @@ var HttpClient = function() {
 }
 
 var client = new HttpClient();
-client.get('http://app.lotto.pl/wyniki/?type=dl', function(response) {
+client.get('https://app.lotto.pl/wyniki/?type=dl', function(response) {
     var currentDraw = response;
     l = currentDraw.split("\n")
     console.log(l);
