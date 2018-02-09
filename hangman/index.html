@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet">
+    <title>Hangman</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="gameStart">
+            <button class="btn" id='onePlayer'>Jeden gracz</button>
+            <button class="btn" id="multiPlayer">Dwóch graczy</button>
+        </div>
+        <div class="game" id="showGame">
+
+            <div class="moves">
+            <p id="moves"></p>
+            </div>
+
+            <div class="gameArea">
+            <div class="password">
+                <p id="password"></p>
+                <form id="myForm">
+                    <input type="text" id="inputText">
+
+                    <input type="button" value="Play" onClick="othername()">
+                </form>
+                <br>
+            </div>
+
+            <div class="newGame">
+                <input type="button" class="btn" value="Nowa gra" onClick="window.location.reload();">
+            </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+
+    var onePlayer = document.getElementById("onePlayer");
+
+    onePlayer.onclick = function () {
+
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "js/onePlayer.js";
+        document.getElementsByTagName("head")[0].appendChild(script);
+        return false;
+
+    }
+
+    var multiPlayer = document.getElementById("multiPlayer");
+
+    multiPlayer.onclick = function () {
+
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "js/multiPlayer.js";
+        document.getElementsByTagName("head")[0].appendChild(script);
+        return false;
+
+    }
+
+</script>
+
+</html>
