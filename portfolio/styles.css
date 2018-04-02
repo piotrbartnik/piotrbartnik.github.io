@@ -21,9 +21,17 @@ html, body {
   height: 30px;
   background-color: hsla(0, 0%, 0%, 0.529);
   color: white;
+  
+}
+
+.header__text {
   display: inline-block;
 }
 
 .main {
   height: 1500px;
+}
+
+.main2 {
+  height: 200px;
 }
