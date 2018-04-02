@@ -7,10 +7,23 @@ html, body {
   height: 100%;
 }
 
-.wrapper {
+.containter {
   background-image: url("img/background.jpg");
   background-size: 20%;
-  size: 100%;
   min-height: 100%;
   height: auto
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 30px;
+  background-color: hsla(0, 0%, 0%, 0.529);
+  color: white;
+  display: inline-block;
+}
+
+.main {
+  height: 1500px;
 }
