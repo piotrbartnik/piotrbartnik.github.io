@@ -1,0 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  background-image: url("img/background.jpg");;
+  width: 100%;
+}
