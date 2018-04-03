@@ -4,54 +4,57 @@ $("#showGame").addClass("load");
 
 document.getElementById("inputText").focus();
 
-var word = ["Warszawa", "Kraków", "Poznań", "Rzeszów", "Szczecin", "Gdańsk", "Wrocław", "Lublin"];
+let word = ["Warszawa", "Kraków", "Poznań", "Rzeszów", "Szczecin", "Gdańsk", "Wrocław", "Lublin"];
 
-var draw = word[Math.floor(Math.random() * word.length)];
+let draw = word[Math.floor(Math.random() * word.length)];
 
-var drawLength = draw.length;
+let drawLength = draw.length;
 
-var emptyPasswordLine = [];
+let emptyPasswordLine = [];
 
-var underscore = "_";
+let underscore = "_";
 
 for (i = 0; i < draw.length; i++) {
-    emptyPasswordLine.push(underscore);
+  emptyPasswordLine.push(underscore);
 }
 
 document.getElementById("password").innerHTML = emptyPasswordLine.join("");
 
-var x = 10;
+let x = 10;
 document.getElementById("moves").innerHTML = "Ruchy: " + x;
 
 function othername() {
-    var guess = document.getElementById("inputText").value;
+  let guess = document.getElementById("inputText").value;
 
-    guess = guess.toLowerCase();
+  guess = guess.toLowerCase();
 
-    var checkIncludes = draw.includes(guess);
-    console.log(checkIncludes);
+  let checkIncludes = draw.includes(guess);
+  console.log(checkIncludes);
+  let found = false;
 
-    if (guess === null) {
-        alert("Wpisz literę");
-    } else if (guess.length != 1) {
-        alert("Wpisz tylko jedna literę")
-    } else if (checkIncludes == false) {
-        x -= 1;
-        alert("Zła litera")
-        document.getElementById("moves").innerHTML = "Ruchy: " + x;
-    } else {
-        for (i = 0; i < draw.length; i++) {
-            if (draw[i].toLowerCase() == guess) {
-                emptyPasswordLine[i] = draw[i];
-                document.getElementById("password").innerHTML = emptyPasswordLine.join("");
-            }
-        }
+  if (guess.length != 1) {
+    alert("Wpisz jedną literę")
+    document.getElementById("moves").innerHTML = "Ruchy: " + x;
+
+  } else {
+    for (i = 0; i < draw.length; i++) {
+      if (draw[i].toLowerCase() === guess) {
+        console.log(guess);
+        emptyPasswordLine[i] = draw[i];
+        found = true;
+        document.getElementById("password").innerHTML = emptyPasswordLine.join("");
+      }
+    } if (found != true) {
+      x -= 1;
+      alert("Zła litera")
+      document.getElementById("moves").innerHTML = "Ruchy: " + x;
     }
-    document.getElementById("myForm").reset();
-    document.getElementById("inputText").focus();
+  }
+  document.getElementById("myForm").reset();
+  document.getElementById("inputText").focus();
 
-    if (x == 0) {
-        alert("Game over!");
-        window.location.reload(true);
-    }
+  if (x == 0) {
+    alert("Game over!");
+    window.location.reload(true);
+  }
 }
