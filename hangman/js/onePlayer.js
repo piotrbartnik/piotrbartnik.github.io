@@ -2,6 +2,19 @@ $(".gameStart .btn").fadeToggle("slow", "linear");
 
 $("#showGame").addClass("load");
 
+var input = document.getElementById("enter");
+
+
+
+$("form").submit(function (e) {
+  e.preventDefault();
+ 
+ 
+      document.getElementById("enter").click();
+      
+    }
+  );
+
 document.getElementById("inputText").focus();
 
 let word = ["Warszawa", "Kraków", "Poznań", "Rzeszów", "Szczecin", "Gdańsk", "Wrocław", "Lublin"];
@@ -59,15 +72,3 @@ function othername() {
   }
 }
 
-var input = document.getElementById("enter");
-
-// Execute a function when the user releases a key on the keyboard
-input.addEventListener("keyup", function(event) {
-  // Cancel the default action, if needed
-  event.preventDefault();
-  // Number 13 is the "Enter" key on the keyboard
-  if (event.keyCode === 13) {
-    // Trigger the button element with a click
-    document.getElementById("myBtn").click();
-  }
-});
