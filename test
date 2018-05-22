@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Strona testowa</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    var _smid = '36ah1dxt6fpehf53';
+    (function (w, r, a, sm, s) {
+      w['SalesmanagoObject'] = r;
+      w[r] = w[r] || function () { (w[r].q = w[r].q || []).push(arguments) };
+      sm = document.createElement('script');
+      sm.type = 'text/javascript'; sm.async = true; sm.src = a;
+      s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(sm, s);
+    })(window, 'sm', ('https:' == document.location.protocol ? 'https://' : 'http://')
+      + 'app2.salesmanago.pl/static/sm.js');
+  </script> 
+  
+  <div>
+  strona testowa
+  </div>
+</body>
+
+</html>
