@@ -11,14 +11,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80vh;
+  padding-top: 20px;
+}
+
+.container__title {
+  padding-bottom: 20px;
 }
 
 .container {
   width: 50vw;
-  height: 30vh;
   color: #6dc1f1;
   font-size: 1.5rem;
+  padding: 10px;
 }
 
 .container__input {
@@ -28,12 +32,15 @@ body {
   color: #6dc1f1;
   outline: none;
   resize: none;
+  margin-bottom: 10px;
+  overflow: hidden;
+  min-height: 50px;  
+  max-height: 3000px;
 }
 
 .container__button {
   width: 200px;
   text-align: center;
-  margin: 0 auto;
   border: 2px solid #6dc1f1;
   background-color: transparent;
   color: #6dc1f1;
@@ -41,4 +48,16 @@ body {
   height: 40px;
   font-size: 1.5rem;
   cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  outline: none;
+}
+
+.container__button:hover {
+  border: 2px solid #ffffff;
+  transition: 2s;
+}
+
+.container__output {
+  padding-top: 20px;
 }

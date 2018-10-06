@@ -6,19 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="author" content="pedro">
-  <title>Morse code translator</title>  
+  <title>Morse code translator</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-<div class="container">
-  Morse code translator
+  <div class="container">
+    <p class="container__title">
+      Morse code translator
+    </p>
+    <textarea class="container__input" name="input" id="input" autofocus ></textarea>
+    <button class="container__button" id="btn">Translate</button>
 
-  <textarea class="container__input" name="input" id="input" autofocus></textarea>
-  <button class="container__button">Translate</button>
-</div>
+    <p class="container__output" id="output">      
+    </p>
+  </div>
 
 </body>
 
 <script src="morse.js"></script>
+
 </html>
