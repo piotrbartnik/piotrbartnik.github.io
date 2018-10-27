@@ -1,4 +1,4 @@
-const textInput = document.getElementById("input").placeholder;
+const textInput = document.getElementById("input");
 const btn = document.getElementById("btn");
 const textOutput = document.getElementById("output");
 
@@ -10,7 +10,7 @@ function type(text, time) {
     setTimeout(
       (function (x) {
         return function () {
-          textInput.value += text.charAt(i);
+          textInput.placeholder += text.charAt(i);
         };
       })(i),
       time * i
@@ -20,9 +20,9 @@ function type(text, time) {
 
 type("Type text to translate here", 100);
 
-textInput.addEventListener("click", function () {
-  textInput.value = ""
-});
+// textInput.addEventListener("click", function () {
+//   textInput.value = ""
+// });
 
 textInput.addEventListener("keyup", function () {
   textInput.style.height = "5px";
