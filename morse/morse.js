@@ -1,4 +1,4 @@
-const textInput = document.getElementById("input");
+const textInput = document.getElementById("input").placeholder;
 const btn = document.getElementById("btn");
 const textOutput = document.getElementById("output");
 
