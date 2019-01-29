@@ -1,1 +1,10 @@
-npm
+.idea/
+/css/.sass-cache/
+*.css.map
+.vscode/
+node_modules/
+package-lock.json
+dist/
+package.json
+vendor/
+composer.lock
