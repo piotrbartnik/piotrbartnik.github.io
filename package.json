@@ -1,0 +1,23 @@
+{
+  "name": "piotrbartnik.github.io",
+  "version": "1.0.0",
+  "description": "Portfolio page",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^4.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piotrbartnik/piotrbartnik.github.io.git"
+  },
+  "author": "Piotr Bartnik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/piotrbartnik/piotrbartnik.github.io/issues"
+  },
+  "homepage": "https://github.com/piotrbartnik/piotrbartnik.github.io#readme"
+}
