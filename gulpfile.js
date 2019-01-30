@@ -18,13 +18,10 @@ gulp.task('minify-css', () => {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('sass:watch', () => {
-  gulp.watch('./sass/**/*.scss', gulp.series('sass'));
-});
-
-gulp.task('minify-css:watch', () => {
+gulp.task('watch', () => {
+  gulp.watch('./sass/**/*.scss', gulp.series('sass')); 
   gulp.watch('css/*.css', gulp.series('minify-css'));
 });
 
 
-gulp.task('default', gulp.series('minify-css:watch', 'sass:watch'));
+gulp.task('default', gulp.series('watch'));
