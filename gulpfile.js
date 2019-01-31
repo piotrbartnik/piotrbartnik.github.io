@@ -3,6 +3,7 @@
 let gulp = require('gulp');
 let sass = require('gulp-sass');
 let cleanCSS = require('gulp-clean-css');
+let babel = require('gulp-babel');
 
 sass.compiler = require('node-sass');
 
@@ -22,6 +23,14 @@ gulp.task('watch', () => {
   gulp.watch('./sass/**/*.scss', gulp.series('sass')); 
   gulp.watch('css/*.css', gulp.series('minify-css'));
 });
+
+gulp.task('babel', () =>
+    gulp.src('js/*.js')
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(gulp.dest('dist'))
+);
 
 
 gulp.task('default', gulp.series('watch'));

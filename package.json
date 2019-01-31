@@ -5,8 +5,11 @@
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
     "browser-sync": "^2.26.3",
     "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.0.0",
     "gulp-live-server": "0.0.31",
     "gulp-load-all-tasks": "^0.2.0",
