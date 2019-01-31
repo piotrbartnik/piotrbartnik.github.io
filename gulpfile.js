@@ -19,11 +19,6 @@ gulp.task('minify-css', () => {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('watch', () => {
-  gulp.watch('./sass/**/*.scss', gulp.series('sass')); 
-  gulp.watch('css/*.css', gulp.series('minify-css'));
-});
-
 gulp.task('babel', () =>
     gulp.src('js/*.js')
         .pipe(babel({
@@ -32,5 +27,12 @@ gulp.task('babel', () =>
         .pipe(gulp.dest('dist'))
 );
 
+gulp.task('watch', () => {
+  gulp.watch('./sass/**/*.scss', gulp.series('sass')); 
+  gulp.watch('css/*.css', gulp.series('minify-css'));
+});
 
-gulp.task('default', gulp.series('watch'));
+
+
+
+gulp.task('default', gulp.series('sass', 'minify-css', 'babel', 'watch'));
