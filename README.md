@@ -1,2 +1,2 @@
-# piotrek8080.github.io
-# commentgi st
+Welcome on my portfolio site!
+Tu run this site you have to instal npm and gulp.
