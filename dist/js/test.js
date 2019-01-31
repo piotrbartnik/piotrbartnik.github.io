@@ -1,0 +1,1 @@
+"use strict";var arrX=[1,2,3];console.logr(arrX.reduce(function(r,e){return r+e}));

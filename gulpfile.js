@@ -4,35 +4,48 @@ let gulp = require('gulp');
 let sass = require('gulp-sass');
 let cleanCSS = require('gulp-clean-css');
 let babel = require('gulp-babel');
+let uglify = require('gulp-uglify');
+let pump = require('pump');
 
 sass.compiler = require('node-sass');
 
 gulp.task('sass',  () => {
-  return gulp.src('./sass/**/*.scss')
+  return gulp.src('src/sass/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('src/css'));
 });
 
 gulp.task('minify-css', () => {
-  return gulp.src('css/*.css')
+  return gulp.src('src/css/*.css')
     .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist/styles'));
 });
 
 gulp.task('babel', () =>
-    gulp.src('js/*.js')
+    gulp.src('src/js/*.js')
         .pipe(babel({
             presets: ['@babel/env']
         }))
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('src/js_babel'))
 );
 
+gulp.task('compress', function (cb) {
+  pump([
+        gulp.src('src/js_babel/*.js'),
+        uglify(),
+        gulp.dest('dist/js')
+    ],
+    cb
+  );
+});
+
 gulp.task('watch', () => {
-  gulp.watch('./sass/**/*.scss', gulp.series('sass')); 
-  gulp.watch('css/*.css', gulp.series('minify-css'));
+  gulp.watch('src/sass/*.scss', gulp.series('sass')); 
+  gulp.watch('src/css/*.css', gulp.series('minify-css'));
+  gulp.watch('src/js_babel/*.js', gulp.series('compress'));
 });
 
 
 
 
-gulp.task('default', gulp.series('sass', 'minify-css', 'babel', 'watch'));
+gulp.task('default', gulp.series('sass', 'minify-css', 'babel', 'compress', 'watch'));
