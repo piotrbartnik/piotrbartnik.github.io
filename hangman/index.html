@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="../dist/styles/single/hangman.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet">
     <title>Hangman</title>
@@ -21,23 +21,23 @@
         <div class="game" id="showGame">
 
             <div class="moves">
-            <p id="moves"></p>
+                <p id="moves"></p>
             </div>
 
             <div class="gameArea">
-            <div class="password">
-                <p id="password"></p>
-                <form id="myForm" >
-                    <input type="text" id="inputText">
+                <div class="password">
+                    <p id="password"></p>
+                    <form id="myForm">
+                        <input type="text" id="inputText">
 
-                    <input type="button" value="enter" onClick="othername()" id="enter">
-                </form>
-                <br>
-            </div>
+                        <input type="button" value="enter" onClick="othername()" id="enter">
+                    </form>
+                    <br>
+                </div>
 
-            <div class="newGame">
-                <button type="button" class="btn" value="Nowa gra" onClick="window.location.reload();">Nowa gra</button>
-            </div>
+                <div class="newGame">
+                    <button type="button" class="btn" value="Nowa gra" onClick="window.location.reload();">Nowa gra</button>
+                </div>
 
             </div>
         </div>
@@ -45,14 +45,13 @@
 </body>
 
 <script type="text/javascript">
-
     var onePlayer = document.getElementById("onePlayer");
 
     onePlayer.onclick = function () {
 
         var script = document.createElement("script");
         script.type = "text/javascript";
-        script.src = "js/onePlayer.js";
+        script.src = "../dist/js/hangman.js";
         document.getElementsByTagName("head")[0].appendChild(script);
         return false;
 
@@ -69,7 +68,6 @@
         return false;
 
     }
-
 </script>
 
 </html>
