@@ -24,11 +24,12 @@
 // }).catch(function(error) {  
 //   console.log('Request failed', error)  
 // });
+var request = new Request('https://stats.nba.com/stats/boxscore');
 
-const Http = new XMLHttpRequest();
-const url='https://www.codewars.com/api/v1/users/:PeterB8080?access_key=-2wAe5CTiBU7QMziUpJb';
-Http.open("GET", url);
-Http.send();
-Http.onreadystatechange=(e)=>{
-console.log(Http.responseText)
-}
+fetch(request, {mode: 'no-cors'})
+.then(function(response) {
+  console.log(response);
+}).catch(function(error) {  
+  console.log('Request failed', error)  
+});
+
