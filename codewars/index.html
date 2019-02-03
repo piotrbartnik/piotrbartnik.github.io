@@ -13,7 +13,15 @@
 </head>
 
 <body>
-  
+  <pre><code class="language-js">let evaporator = (con, epd, th) => { 
+    let minCon = (con*th)/100;
+    counter = 0;
+    while (con>minCon) {
+      con -= (con*epd)/100;
+      counter +=1
+    }
+    return counter
+  }</code></pre>
 </body>
 
 </html>
