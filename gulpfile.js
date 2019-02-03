@@ -64,7 +64,8 @@ gulp.task('watch', () => {
   gulp.watch('src/css/conact/*.css', gulp.series('minify-css'));
   gulp.watch('src/sass/single/*.scss', gulp.series('sassSingle')); 
   gulp.watch('src/css/single/*.css', gulp.series('minify-cssSingle'));
-  gulp.watch('src/js/*.js', gulp.series('compress'));
+  gulp.watch('src/js/*.js', gulp.series('babel'));
+  gulp.watch('src/js_babel/*.js', gulp.series('compress'));
 });
 
 

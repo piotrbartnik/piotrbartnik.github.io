@@ -6,22 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>piotrekbartnik -- front end dev</title>
-  <link rel="stylesheet" href="../dist/styles/morse.css">
+  <link rel="stylesheet" href="../dist/styles/single/morse.css">
   <link rel="stylesheet" href="../dist/libs/prism.css">
-  <script src="../dist/js/codewars.js"></script>
   <script src="../dist/libs/prism.js"></script>
 </head>
 
 <body>
-  <pre><code class="language-js">let evaporator = (con, epd, th) => { 
-    let minCon = (con*th)/100;
-    counter = 0;
-    while (con>minCon) {
-      con -= (con*epd)/100;
-      counter +=1
-    }
-    return counter
-  }</code></pre>
+  <div id="root"></div>
 </body>
-
+<script src="../dist/js/codewars.js"></script>
 </html>

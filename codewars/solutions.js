@@ -1,4 +1,4 @@
-{
+var solutions = {
   "0": "function multiply(a, b){\n return a * b\n}\n",
   "1": "function isTriangle(a,b,c) {\nif ((a+b)>c && (a+c)>b && (c+b)>a) {\nreturn true; \n}else{\n   return false;\n}}",
   "2": "var breakChocolate = function(n, m) {\nif (n*m > 0){\n return (n*m)-1\n } else {\n return false;\n}};",
@@ -85,3 +85,5 @@
   "83": "let money_value = (s) => {\n  s = s.replace('$', '');\n  s = s.replace(' ', '');\n  return s.search(/\\d/) != -1 ? parseFloat(s) : '0.0'\n}",
   "84": "let evaporator = (con, epd, th) => { \n  let minCon = (con*th)/100;\n  counter = 0;\n  while (con>minCon) {\n    con -= (con*epd)/100;\n    counter +=1\n  }\n  return counter\n}"
 }
+
+export default solutions;
