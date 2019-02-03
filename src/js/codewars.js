@@ -6,7 +6,7 @@ xhttp.onreadystatechange = function() {
         console.log(response);
     }
 };
-xhttp.open("GET", "https://airapi.airly.eu/v2/installations/nearest?lat=50.062006&lng=19.940984&maxDistanceKM=3&maxResults=1&apikey=DUTx1OkMGO3PZA782KBdX0ky0SJmkUyK", true);
+xhttp.open("GET", "https://cors-anywhere.herokuapp.com/www.codewars.com/api/v1/users/PeterB8080/code-challenges/completed?page=0", true);
 
 xhttp.send();
 
