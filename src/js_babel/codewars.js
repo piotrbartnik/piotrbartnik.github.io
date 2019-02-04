@@ -13,7 +13,7 @@ xhttp.onreadystatechange = function () {
     for (var i = 0; i < response.data.length; i++) {
       var card = document.createElement('div');
       card.setAttribute('class', 'card');
-      var h1 = document.createElement('h1');
+      var h1 = document.createElement('div');
       h1.textContent = response.data[i].name;
       var p = document.createElement('p');
       container.appendChild(card);
