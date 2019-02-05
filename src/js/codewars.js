@@ -1,39 +1,39 @@
-const app = document.getElementById('root');
-
-const container = document.createElement('div');
-container.setAttribute('class', 'container');
-
-app.appendChild(container);
+const app = document.getElementsByClassName('wrapper')[0];
 
 let xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         let response = JSON.parse(this.responseText);
         for (let i = 0; i < response.data.length; i++) {
-          const card = document.createElement('div');
-          card.setAttribute('class', 'card');          
 
+          const card = document.createElement('div');
+          card.setAttribute('class', 'wrapper__box'); 
+          
           const h1 = document.createElement('div');
           h1.textContent = response.data[i].name;
 
-          const p = document.createElement('p');          
+          const pre = document.createElement('pre'); 
+          pre.setAttribute('class', 'language-js'); 
+
+          const code = document.createElement('code');
+          code.setAttribute('class', 'language-js'); 
+          code.innerText = solutions[i];         
         
 
-          container.appendChild(card);
+          app.appendChild(card);
           card.appendChild(h1);
-          card.appendChild(p);
-
-          console.log(response.data[i].name);
-
+          card.appendChild(pre);
+          pre.appendChild(code);
         };
-    }
+        Prism.highlightAll();
+      }
 };
 xhttp.open("GET", "https://cors-anywhere.herokuapp.com/www.codewars.com/api/v1/users/PeterB8080/code-challenges/completed?page=0", true);
 
 xhttp.send();
 
 let solutions = {
-  "0": "function multiply(a, b){\n return a * b\n}\n",
+  "0": "function multiply(a, b){ return a * b}",
   "1": "function isTriangle(a,b,c) {\nif ((a+b)>c && (a+c)>b && (c+b)>a) {\nreturn true; \n}else{\n   return false;\n}}",
   "2": "var breakChocolate = function(n, m) {\nif (n*m > 0){\n return (n*m)-1\n } else {\n return false;\n}};",
   "3": "function spinWords(input){\n  let wordArray = input.split(\" \");\n   for (i=0; i<wordArray.length;i++) {\n    if (wordArray[i].length >= 5) {\n    wordArray[i] = (wordArray[i].split(\"\").reverse().join(\"\"))\n   }\n  }\nreturn wordArray.join(\" \");\n}\n",

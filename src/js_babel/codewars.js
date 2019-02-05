@@ -1,9 +1,6 @@
 "use strict";
 
-var app = document.getElementById('root');
-var container = document.createElement('div');
-container.setAttribute('class', 'container');
-app.appendChild(container);
+var app = document.getElementsByClassName('wrapper')[0];
 var xhttp = new XMLHttpRequest();
 
 xhttp.onreadystatechange = function () {
@@ -12,24 +9,29 @@ xhttp.onreadystatechange = function () {
 
     for (var i = 0; i < response.data.length; i++) {
       var card = document.createElement('div');
-      card.setAttribute('class', 'card');
+      card.setAttribute('class', 'wrapper__box');
       var h1 = document.createElement('div');
       h1.textContent = response.data[i].name;
-      var p = document.createElement('p');
-      container.appendChild(card);
+      var pre = document.createElement('pre');
+      pre.setAttribute('class', 'language-js');
+      var code = document.createElement('code');
+      code.setAttribute('class', 'language-js');
+      code.innerText = solutions[i];
+      app.appendChild(card);
       card.appendChild(h1);
-      card.appendChild(p);
-      console.log(response.data[i].name);
+      card.appendChild(pre);
+      pre.appendChild(code);
     }
 
     ;
+    Prism.highlightAll();
   }
 };
 
 xhttp.open("GET", "https://cors-anywhere.herokuapp.com/www.codewars.com/api/v1/users/PeterB8080/code-challenges/completed?page=0", true);
 xhttp.send();
 var solutions = {
-  "0": "function multiply(a, b){\n return a * b\n}\n",
+  "0": "function multiply(a, b){ return a * b}",
   "1": "function isTriangle(a,b,c) {\nif ((a+b)>c && (a+c)>b && (c+b)>a) {\nreturn true; \n}else{\n   return false;\n}}",
   "2": "var breakChocolate = function(n, m) {\nif (n*m > 0){\n return (n*m)-1\n } else {\n return false;\n}};",
   "3": "function spinWords(input){\n  let wordArray = input.split(\" \");\n   for (i=0; i<wordArray.length;i++) {\n    if (wordArray[i].length >= 5) {\n    wordArray[i] = (wordArray[i].split(\"\").reverse().join(\"\"))\n   }\n  }\nreturn wordArray.join(\" \");\n}\n",
