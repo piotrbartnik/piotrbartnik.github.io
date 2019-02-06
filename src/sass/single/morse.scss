@@ -95,8 +95,27 @@ body {
   flex-wrap: wrap;
 
   &__box {
-    max-width: 500px;
-    border: 1px solid white;
+    width: 500px;    
     margin: 20px;
+  }
+
+  @media screen and (max-width: 600px){
+    &__box {
+      width: 300px;   
+    
+    }
+  }
+}
+
+.kata { 
+
+  &__title {
+    font-size: 16px;
+    color: rgb(195, 195, 195);
+  }
+
+  &__date {
+    font-size: 14px;
+    color: rgb(219, 172, 172);
   }
 }

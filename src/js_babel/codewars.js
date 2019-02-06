@@ -104,6 +104,9 @@ xhttp.onreadystatechange = function () {
       var h1 = document.createElement('div');
       h1.textContent = response.data[i].name;
       h1.setAttribute('class', 'kata__title');
+      var h2 = document.createElement('div');
+      h2.textContent = "Completed at: " + response.data[i].completedAt.slice(0, 10);
+      h2.setAttribute('class', 'kata__date');
       var pre = document.createElement('pre');
       pre.setAttribute('class', 'language-js');
       var code = document.createElement('code');
@@ -111,6 +114,7 @@ xhttp.onreadystatechange = function () {
       code.innerText = solutions[Object.keys(solutions).length - 1 - i];
       app.appendChild(card);
       card.appendChild(h1);
+      card.appendChild(h2);
       card.appendChild(pre);
       pre.appendChild(code);
     }

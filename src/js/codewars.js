@@ -97,13 +97,16 @@ xhttp.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
     let response = JSON.parse(this.responseText);
     for (let i = 0; i < response.data.length; i++) {
-
       const card = document.createElement('div');
       card.setAttribute('class', 'wrapper__box');
 
       const h1 = document.createElement('div');
       h1.textContent = response.data[i].name;
       h1.setAttribute('class', 'kata__title');
+
+      const h2 = document.createElement('div');
+      h2.textContent = "Completed at: " + response.data[i].completedAt.slice(0,10);
+      h2.setAttribute('class', 'kata__date');
 
       const pre = document.createElement('pre');
       pre.setAttribute('class', 'language-js');
@@ -113,6 +116,7 @@ xhttp.onreadystatechange = function () {
       code.innerText = solutions[Object.keys(solutions).length - 1 - i];
       app.appendChild(card);
       card.appendChild(h1);
+      card.appendChild(h2);
       card.appendChild(pre);
       pre.appendChild(code);
     };
