@@ -74,6 +74,6 @@ body {
   flex: auto;
   flex-wrap: wrap; }
   .wrapper__box {
-    width: 500px;
+    max-width: 500px;
     border: 1px solid white;
     margin: 20px; }

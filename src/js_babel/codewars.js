@@ -1,35 +1,5 @@
 "use strict";
 
-var app = document.getElementsByClassName('wrapper')[0];
-var xhttp = new XMLHttpRequest();
-
-xhttp.onreadystatechange = function () {
-  if (this.readyState == 4 && this.status == 200) {
-    var response = JSON.parse(this.responseText);
-
-    for (var i = 0; i < response.data.length; i++) {
-      var card = document.createElement('div');
-      card.setAttribute('class', 'wrapper__box');
-      var h1 = document.createElement('div');
-      h1.textContent = response.data[i].name;
-      var pre = document.createElement('pre');
-      pre.setAttribute('class', 'language-js');
-      var code = document.createElement('code');
-      code.setAttribute('class', 'language-js');
-      code.innerText = solutions[i];
-      app.appendChild(card);
-      card.appendChild(h1);
-      card.appendChild(pre);
-      pre.appendChild(code);
-    }
-
-    ;
-    Prism.highlightAll();
-  }
-};
-
-xhttp.open("GET", "https://cors-anywhere.herokuapp.com/www.codewars.com/api/v1/users/PeterB8080/code-challenges/completed?page=0", true);
-xhttp.send();
 var solutions = {
   "0": "function multiply(a, b){ return a * b}",
   "1": "function isTriangle(a,b,c) {\nif ((a+b)>c && (a+c)>b && (c+b)>a) {\nreturn true; \n}else{\n   return false;\n}}",
@@ -115,5 +85,39 @@ var solutions = {
   "81": "let inArray = (array1, array2) => {\n  array2 = array2.join(',');\n  let result = [];\n  for (let i = 0; i < array2.length; i++) {\n    if ((array2.indexOf(array1[i])) != -1) {\n      result.push(array1[i])\n    }\n  }\n  console.log(array1, array2);\n  return result.sort();\n}",
   "82": "function SeriesSum(n) { \n  let result = [1];\n  for (let i = 1; i<n; i++) {\n    result.push((1/(1+(3*i))))\n  }\n  return n != 0 ? result.reduce((a,b)=>a+b).toFixed(2) : '0.00'\n}",
   "83": "let money_value = (s) => {\n  s = s.replace('$', '');\n  s = s.replace(' ', '');\n  return s.search(/\\d/) != -1 ? parseFloat(s) : '0.0'\n}",
-  "84": "let evaporator = (con, epd, th) => { \n  let minCon = (con*th)/100;\n  counter = 0;\n  while (con>minCon) {\n    con -= (con*epd)/100;\n    counter +=1\n  }\n  return counter\n}"
+  "84": "let evaporator = (con, epd, th) => { \n  let minCon = (con*th)/100;\n  counter = 0;\n  while (con>minCon) {\n    con -= (con*epd)/100;\n    counter +=1\n  }\n  return counter\n}",
+  "85": "function sumArray(array) {\n   if (!array || array.length == 1 ||   array.length == 2) {\n     return 0     \n   } else if (array && array.length) {\n     return array.sort((a,b)=>a-b).slice(1, array.length-1).reduce((a,b)=>a+b)\n   } else { \n     return 0\n   }\n}",
+  "86": "let anagramCounter = (arr) => {\n  arr = arr.map(a => a.split('').sort().join(''));\n  let count = 0;\n  for(let i =0; i<arr.length;i++) {\n    for(let j = i+1; j<arr.length; j++) {\n      if (arr[i] === arr[j]) {\n        count += 1\n      }\n    }\n  }\n return count\n}",
+  "87": "let alphabet = [\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\", \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\"];\nArray.prototype.diff = function (arr) {\n  return this.filter(function (val) {\n    return arr.indexOf(val) < 0;\n  });\n};\n\nlet findMissingLetter = (array) => {  \n  let arrayPre = array.map(x => x.toLowerCase());\n  let test = alphabet.slice(alphabet.indexOf(arrayPre[0]), alphabet.indexOf(arrayPre[arrayPre.length - 1]));\n  return array[0] === array[0].toUpperCase() ? test.diff(arrayPre)[0].toUpperCase() : test.diff(arrayPre)[0]\n}",
+  "88": "function sqInRect(lng, wdth) {\n  if (lng == wdth) {\n    return null\n  };\n  let result = [];\n  let area = (lng * wdth);\n  while (area != 0) {\n    let side = lng <= wdth ? lng : wdth;\n    wdth === side ? lng -= side : wdth -= side;\n    result.push(side);\n    area = area - Math.pow(side, 2);\n  }\n  return result\n}"
 };
+var app = document.getElementsByClassName('wrapper')[0];
+var xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+    var response = JSON.parse(this.responseText);
+
+    for (var i = 0; i < response.data.length; i++) {
+      var card = document.createElement('div');
+      card.setAttribute('class', 'wrapper__box');
+      var h1 = document.createElement('div');
+      h1.textContent = response.data[i].name;
+      h1.setAttribute('class', 'kata__title');
+      var pre = document.createElement('pre');
+      pre.setAttribute('class', 'language-js');
+      var code = document.createElement('code');
+      code.setAttribute('class', 'language-js');
+      code.innerText = solutions[Object.keys(solutions).length - 1 - i];
+      app.appendChild(card);
+      card.appendChild(h1);
+      card.appendChild(pre);
+      pre.appendChild(code);
+    }
+
+    ; // Prism.highlightAll();
+  }
+};
+
+xhttp.open("GET", "https://cors-anywhere.herokuapp.com/www.codewars.com/api/v1/users/PeterB8080/code-challenges/completed?page=0", true);
+xhttp.send();

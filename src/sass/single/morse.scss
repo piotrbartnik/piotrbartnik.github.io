@@ -95,7 +95,7 @@ body {
   flex-wrap: wrap;
 
   &__box {
-    width: 500px;
+    max-width: 500px;
     border: 1px solid white;
     margin: 20px;
   }
