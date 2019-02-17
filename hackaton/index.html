@@ -17,6 +17,7 @@
 <script>
   let test = "test"
 </script>
+
 <body class="grey lighten-3"">
   <!-- NAVBAR -->
   <nav class=" z-depth-0 grey lighten-4">
@@ -111,6 +112,9 @@
     <ul class="collapsible z-depth-0 guides" style="border: none;">
     </ul>
   </div>
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-firestore.js"></script>
   <script>
     // Initialize Firebase
     var config = {
@@ -122,9 +126,12 @@
       messagingSenderId: "914353917430"
     };
     firebase.initializeApp(config);
+
+    const auth = firebase.auth();
+    const db = firebase.firestore();
   </script>
 
-  
+
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="scripts/auth.js"></script>
