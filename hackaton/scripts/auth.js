@@ -24,8 +24,11 @@ createForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
   db.collection('guides').add({
-    title: createForm['title'].value,
-    content: createForm['content'].value
+    name: createForm['name'].value,
+    academy: createForm['academy'].value,
+    hobby: createForm['hobby'].value,
+    skills: createForm['skills'].value,
+    crazy_skills: createForm['crazy_skills'].value
   }).then(() => {
     // close modal and reset form
     const modal = document.querySelector('#modal-create')
