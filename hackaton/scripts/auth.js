@@ -4,9 +4,15 @@ auth.onAuthStateChanged(user => {
   if (user) {
     console.log('user logged in:', user);
     // if user is logged in get data and update UI
+    db.collection('users').onSnapshot(snapshot => {
+      userColections(snapshot.docs)
+    }, err => {
+      console.log(err.message);
+    })
     db.collection('guides').onSnapshot(snapshot => {
       setupGuides(snapshot.docs);
       setupUI(user);
+
     }, err => {
       console.log(err.message);
     })
@@ -52,7 +58,9 @@ signupForm.addEventListener('submit', (e) => {
   //sign up the user
   auth.createUserWithEmailAndPassword(email, password).then(cred => {
     return db.collection('users').doc(cred.user.uid).set({
-      bio: signupForm['signup-bio'].value
+      academy: signupForm['signup-academy'].value,
+      hobby: signupForm['signup-hobby'].value,
+      skills: signupForm['signup-skills'].value
     });
   }).then(() => {
     const modal = document.querySelector('#modal-signup')

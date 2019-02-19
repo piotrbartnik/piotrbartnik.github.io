@@ -12,6 +12,7 @@ const setupUI = (user) => {
       <div>${doc.data().bio}</div>
       `;
       accountDetails.innerHTML = html;
+
     })
 
     // toggle UI elements
@@ -26,9 +27,34 @@ const setupUI = (user) => {
   }
 }
 
-// setup guides
+// const userColections = (user) => {
+//   if (user) {
+//     // account info
+//     db.collection('users').doc(user.uid).get().then(doc => {
+
+//       console.log(doc.data().bio)
+//     })
+
+
+//   }
+// }
+
+const userColections = (data) => {
+
+  // check if user is logged in
+  if (data.length) {
+
+    data.forEach(doc => {
+      const user = doc.data();
+      console.log(user.bio);
+
+    });
+  }
+}
+
+
 const setupGuides = (data) => {
-  
+
   // check if user is logged in
   if (data.length) {
     let html = '';
@@ -38,7 +64,7 @@ const setupGuides = (data) => {
       const guide = doc.data();
       hobbyArray.push(guide.hobby);
       skillsArray.push(guide.skills);
-      
+
 
       // const li = `
       //   <li>
@@ -52,7 +78,7 @@ const setupGuides = (data) => {
 
       // html += li
     });
-   
+
     const li = `
     <li>
     <div class="collapsible-header grey lighten-4">Hobby naszych wspaniałych pracowników</div> 
@@ -63,7 +89,7 @@ const setupGuides = (data) => {
     <div class="collapsible-body white">${skillsArray}</div> 
     </li>
      `;
-     html += li
+    html += li
     guideList.innerHTML = html;
   } else {
     guideList.innerHTML = '<h5 class="center-align">Log in to see guides</h5>'
