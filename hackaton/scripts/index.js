@@ -11,7 +11,7 @@ const setupUI = (user) => {
       <div>Logged in as ${user.email}</div>
       <div>Uczelnia: ${doc.data().academy}</div>
       <div>hobby: ${doc.data().hobby}</div>
-      <div>hobby: ${doc.data().skills}</div>
+      <div>Skilsy: ${doc.data().skills}</div>
       `;
       accountDetails.innerHTML = html;
 
