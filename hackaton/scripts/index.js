@@ -28,25 +28,42 @@ const setupUI = (user) => {
 
 // setup guides
 const setupGuides = (data) => {
-
+  
   // check if user is logged in
   if (data.length) {
     let html = '';
+    let hobbyArray = [];
+    let skillsArray = [];
     data.forEach(doc => {
       const guide = doc.data();
-      const li = `
-        <li>
-          <div class="collapsible-header grey lighten-4">${guide.name}</div>          
-          <div class="collapsible-body white">${guide.academy}</div>
-          <div class="collapsible-body white">${guide.hobby}</div>
-          <div class="collapsible-body white">${guide.skills}</div>
-          <div class="collapsible-body white">${guide.crazy_skills}</div>
-        </li>
-      `;
+      hobbyArray.push(guide.hobby);
+      skillsArray.push(guide.skills);
+      
 
-      html += li
+      // const li = `
+      //   <li>
+      //     <div class="collapsible-header grey lighten-4">${guide.name}</div>          
+      //     <div class="collapsible-body white">${guide.academy}</div>
+      //     <div class="collapsible-body white">${guide.hobby}</div>
+      //     <div class="collapsible-body white">${guide.skills}</div>
+      //     <div class="collapsible-body white">${guide.crazy_skills}</div>
+      //   </li>
+      // `;
+
+      // html += li
     });
-
+   
+    const li = `
+    <li>
+    <div class="collapsible-header grey lighten-4">Hobby naszych wspaniałych pracowników</div> 
+    <div class="collapsible-body white">${hobbyArray}</div> 
+    </li>
+    <li>
+    <div class="collapsible-header grey lighten-4">Umiejętności naszych wspaniałych pracowników</div> 
+    <div class="collapsible-body white">${skillsArray}</div> 
+    </li>
+     `;
+     html += li
     guideList.innerHTML = html;
   } else {
     guideList.innerHTML = '<h5 class="center-align">Log in to see guides</h5>'
