@@ -33,7 +33,7 @@
         <a href="#" class="grey-text" id="logout">Wyloguj</a>
       </li>
       <li class="logged-in">
-        <a href="#" class="grey-text modal-trigger" data-target="modal-create">Twój profil</a>
+        <a href="#" class="grey-text modal-trigger" data-target="modal-create">Edytuj profil</a>
       </li>
       <li class="logged-out">
         <a href="#" class="grey-text modal-trigger" data-target="modal-login">Zaloguj</a>
@@ -59,17 +59,9 @@
           <label for="signup-password">Hasło</label>
         </div>
         <div class="input-field">
-          <input type="text" id="signup-bio" required>
-          <label for="signup-academy">Uczelnia</label>
-        </div>
-        <div class="input-field">
-          <input type="text" id="signup-bio" required>
-          <label for="signup-hobby">Hobby</label>
-        </div>
-        <div class="input-field">
-          <input type="text" id="signup-bio" required>
-          <label for="signup-skills">Umiejętności</label>
-        </div>
+          <input type="text" id="signup-name" required>
+          <label for="signup-name">Imię i nazwisko</label>
+        </div>       
         <button class="btn yellow darken-2 z-depth-0">Sign up</button>
       </form>
     </div>
@@ -94,19 +86,16 @@
   <!-- ACCOUNT MODAL -->
   <div id="modal-account" class="modal">
     <div class="modal-content center-align">
-      <h4>Account details</h4><br />
+      <h4>Twój profil</h4><br />
       <div class="account-details"></div>
     </div>
   </div>
-  <!-- CREATE GUIDE MODAL
-  <div id="modal-create" class="modal">
+  <!-- CREATE GUIDE MODAL -->
+  <div id="modal-create2" class="modal">
     <div class="modal-content">
-      <h4>Profil pracownika</h4><br />
-      <form id="create-form">
-        <div class="input-field">
-          <input type="text" id="name" required>
-          <label for="name">Imię i nazwisko</label>
-        </div>
+      <h4>Proszę uzupełnić profil</h4><br />
+      <div class="account-details"></div>
+      <form id="create-form">        
         <div class="input-field">
           <textarea id="academy" class="materialize-textarea" required></textarea>
           <label for="academy">Uczelnia</label>
@@ -126,7 +115,7 @@
         <button class="btn yellow darken-2 z-depth-0">Create</button>
       </form>
     </div>
-  </div> -->
+  </div>
   <!-- GUIDE LIST -->
   <div class="container" style="margin-top: 40px;">
     <ul class="collapsible z-depth-0 guides" style="border: none;">

@@ -5,22 +5,26 @@ auth.onAuthStateChanged(user => {
     console.log('user logged in:', user);
     // if user is logged in get data and update UI
     db.collection('users').onSnapshot(snapshot => {
-      userColections(snapshot.docs)
-    }, err => {
-      console.log(err.message);
-    })
-    db.collection('guides').onSnapshot(snapshot => {
-      setupGuides(snapshot.docs);
+      userColections(snapshot.docs);
+      console.log(user);
       setupUI(user);
-
     }, err => {
       console.log(err.message);
     })
+    db.collection('users').doc(user.uid).get().then(doc => {
+      let x = doc.data();
+      if(Object.entries(x).length<4) {
+        console.log('lol', x, user); 
+        const modal = document.querySelector('#modal-create2');
+        modal.style.display = "block"     
+      }
+
+    })
+   
   } else {
     console.log('user logged out.')
     // if user is logged out clear the UI
     setupUI();
-    setupGuides([]);
   }
 })
 
@@ -28,21 +32,24 @@ auth.onAuthStateChanged(user => {
 const createForm = document.querySelector('#create-form');
 createForm.addEventListener('submit', (e) => {
   e.preventDefault();
+  auth.onAuthStateChanged(user => {
+    console.log(user);
+  
 
-  db.collection('guides').add({
-    name: createForm['name'].value,
+  db.collection('users').doc(user.uid).set({
     academy: createForm['academy'].value,
     hobby: createForm['hobby'].value,
     skills: createForm['skills'].value,
     crazy_skills: createForm['crazy_skills'].value
   }).then(() => {
     // close modal and reset form
-    const modal = document.querySelector('#modal-create')
+    const modal = document.querySelector('#modal-create2')
     M.Modal.getInstance(modal).close();
     createForm.reset();
   }).catch(err => {
     console.log(err.message);
   });
+})
 });
 
 // signup
@@ -58,9 +65,7 @@ signupForm.addEventListener('submit', (e) => {
   //sign up the user
   auth.createUserWithEmailAndPassword(email, password).then(cred => {
     return db.collection('users').doc(cred.user.uid).set({
-      academy: signupForm['signup-academy'].value,
-      hobby: signupForm['signup-hobby'].value,
-      skills: signupForm['signup-skills'].value
+      name: signupForm['signup-name'].value
     });
   }).then(() => {
     const modal = document.querySelector('#modal-signup')

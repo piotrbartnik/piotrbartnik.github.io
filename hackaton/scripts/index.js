@@ -9,7 +9,9 @@ const setupUI = (user) => {
     db.collection('users').doc(user.uid).get().then(doc => {
       const html = `
       <div>Logged in as ${user.email}</div>
-      <div>${doc.data().bio}</div>
+      <div>Uczelnia: ${doc.data().academy}</div>
+      <div>hobby: ${doc.data().hobby}</div>
+      <div>hobby: ${doc.data().skills}</div>
       `;
       accountDetails.innerHTML = html;
 
@@ -25,74 +27,29 @@ const setupUI = (user) => {
     loggedInLinks.forEach(item => item.style.display = 'none');
     loggedOutLinks.forEach(item => item.style.display = 'block');
   }
-}
-
-// const userColections = (user) => {
-//   if (user) {
-//     // account info
-//     db.collection('users').doc(user.uid).get().then(doc => {
-
-//       console.log(doc.data().bio)
-//     })
-
-
-//   }
-// }
+};
 
 const userColections = (data) => {
 
   // check if user is logged in
   if (data.length) {
-
+    let html = '';
+    let academyArray = [];
     data.forEach(doc => {
       const user = doc.data();
-      console.log(user.bio);
+      academyArray.push(user.academy);
 
     });
-  }
-}
-
-
-const setupGuides = (data) => {
-
-  // check if user is logged in
-  if (data.length) {
-    let html = '';
-    let hobbyArray = [];
-    let skillsArray = [];
-    data.forEach(doc => {
-      const guide = doc.data();
-      hobbyArray.push(guide.hobby);
-      skillsArray.push(guide.skills);
-
-
-      // const li = `
-      //   <li>
-      //     <div class="collapsible-header grey lighten-4">${guide.name}</div>          
-      //     <div class="collapsible-body white">${guide.academy}</div>
-      //     <div class="collapsible-body white">${guide.hobby}</div>
-      //     <div class="collapsible-body white">${guide.skills}</div>
-      //     <div class="collapsible-body white">${guide.crazy_skills}</div>
-      //   </li>
-      // `;
-
-      // html += li
-    });
-
     const li = `
     <li>
-    <div class="collapsible-header grey lighten-4">Hobby naszych wspaniałych pracowników</div> 
-    <div class="collapsible-body white">${hobbyArray}</div> 
+    <div class="collapsible-header grey lighten-4">Gdzie studiowali nasi pracownicy</div> 
+    <div class="collapsible-body white">${academyArray}</div> 
     </li>
-    <li>
-    <div class="collapsible-header grey lighten-4">Umiejętności naszych wspaniałych pracowników</div> 
-    <div class="collapsible-body white">${skillsArray}</div> 
-    </li>
+    
      `;
     html += li
     guideList.innerHTML = html;
-  } else {
-    guideList.innerHTML = '<h5 class="center-align">Log in to see guides</h5>'
+    
   }
 }
 
