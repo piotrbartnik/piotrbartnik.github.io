@@ -34,6 +34,8 @@ const setupUI = (user) => {
 const userColections = (data) => {
   const academyArray = [];
   const countsAcademy = {};
+  const skillsArray = [];
+  const countsSkills = {};
   // check if user is logged in
   if (data.length) {
     let html = '';
@@ -43,6 +45,9 @@ const userColections = (data) => {
       if (user.academy) {
         academyArray.push(user.academy);
       }
+      if (user.skills) {
+        skillsArray.push(user.skills);
+      }
 
 
 
@@ -50,8 +55,12 @@ const userColections = (data) => {
     academyArray.forEach(function (x) {
       countsAcademy[x] = (countsAcademy[x] || 0) + 1;
     });
+    skillsArray.forEach(function (x) {
+      countsSkills[x] = (countsSkills[x] || 0) + 1;
+    });
     console.log(Object.entries(countsAcademy))
     let academyObject = Object.entries(countsAcademy);
+    let skillsObject = Object.entries(countsSkills);
 
     const li = `
     <li>
@@ -60,21 +69,30 @@ const userColections = (data) => {
     </li>
     
      `;
-     
+
     // html += li
-    const collapsibleBody = document.getElementsByClassName('collapsible-body')[0];
+    const collapsibleBody = document.getElementsByClassName('collapsible-body');
+    const collapsibleBody2 = document.getElementsByClassName('collapsible-body2');
+    
     console.log()
     for (let i = 0; i < academyObject.length; i++) {
       const h1 = document.createElement('a');
       console.log(academyObject[i][0] + ' ' + academyObject[i][1] + ',')
       h1.textContent = academyObject[i][0] + ' ' + '(' + academyObject[i][1] + ')' + ', ';
       h1.setAttribute('class', 'big_tag');
-      collapsibleBody.appendChild(h1);
+      collapsibleBody[0].appendChild(h1);
     }
-    // guideList.innerHTML = html;
+    for (let i = 0; i < skillsObject.length; i++) {
+      const h1 = document.createElement('a');
+      console.log(skillsObject[i][0] + ' ' + skillsObject[i][1] + ',')
+      h1.textContent = skillsObject[i][0] + ' ' + '(' + skillsObject[i][1] + ')' + ', ';
+      h1.setAttribute('class', 'big_tag');
+      collapsibleBody[1].appendChild(h1);
+    }
   }
-  
+  // guideList.innerHTML = html;
 }
+
 
 // setup materialize components
 document.addEventListener('DOMContentLoaded', function () {
