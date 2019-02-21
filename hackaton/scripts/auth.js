@@ -12,6 +12,7 @@ auth.onAuthStateChanged(user => {
       console.log(err.message);
     })
     db.collection('users').doc(user.uid).get().then(doc => {
+      console.log(doc.data())
       let data = doc.data();     
       if (Object.entries(data).length < 4) {
 
@@ -52,11 +53,23 @@ createForm.addEventListener('submit', (e) => {
 });
 
 const createForm2 = document.querySelector('#create-form2');
+auth.onAuthStateChanged(user => {
+db.collection('users').doc(user.uid).get().then(doc => {
+  createForm['academy'].value = doc.data().academy;
+  createForm['hobby'].value = doc.data().hobby;
+  createForm['skills'].value = doc.data().skills;
+  createForm['crazy_skills'].value = doc.data().crazy_skills;
+
+});
+})
+     
 createForm.addEventListener('submit', (e) => {
   e.preventDefault();
   auth.onAuthStateChanged(user => {
+    
 
     db.collection('users').doc(user.uid).update({
+      
       academy: createForm['academy'].value,
       hobby: createForm['hobby'].value,
       skills: createForm['skills'].value,
