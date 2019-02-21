@@ -51,6 +51,28 @@ createForm.addEventListener('submit', (e) => {
   })
 });
 
+const createForm2 = document.querySelector('#create-form2');
+createForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  auth.onAuthStateChanged(user => {
+
+    db.collection('users').doc(user.uid).update({
+      academy: createForm['academy'].value,
+      hobby: createForm['hobby'].value,
+      skills: createForm['skills'].value,
+      crazy_skills: createForm['crazy_skills'].value
+    }).then(() => {
+      // close modal and reset form
+      const modal = document.querySelector('#modal-create')
+      M.Modal.getInstance(modal).close();
+      createForm.reset();    
+      location.reload();
+    }).catch(err => {
+      console.log(err.message);
+    });
+  })
+});
+
 // signup
 const signupForm = document.querySelector('#signup-form');
 
