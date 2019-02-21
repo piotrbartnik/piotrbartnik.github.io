@@ -65,16 +65,15 @@ const userColections = (data) => {
     const collapsibleBody = document.getElementsByClassName('collapsible-body')[0];
     console.log()
     for (let i = 0; i < academyObject.length; i++) {
-      const h1 = document.createElement('div');
+      const h1 = document.createElement('a');
       console.log(academyObject[i][0] + ' ' + academyObject[i][1] + ',')
       h1.textContent = academyObject[i][0] + ' ' + '(' + academyObject[i][1] + ')' + ', ';
       h1.setAttribute('class', 'big_tag');
       collapsibleBody.appendChild(h1);
     }
     // guideList.innerHTML = html;
-
   }
-  collapsibleBody
+  
 }
 
 // setup materialize components
