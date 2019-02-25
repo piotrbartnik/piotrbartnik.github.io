@@ -1,29 +1,242 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>piotrekbartnik -- front end dev</title>
-  <link rel="stylesheet" href="dist/styles/styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/solid.css" integrity="sha384-r/k8YTFqmlOaqRkZuSiE9trsrDXkh07mRaoGBMoDcmA58OHILZPsk29i2BsFng1B"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/fontawesome.css" integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <title>HACKATHON</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header>
-    <nav>
-      <div class="nav__wrapper"> 
-        <ul class="nav__list">
-          <a href="#" class="brand-logo">Logo</a>
-          <li><a href="">About me</a></li>
-          <li><a href="">Skills</a></li>
-          <li><a href="">Projects</a></li>
-     
+
+
+
+  <section id="loginPanel" class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 mb-2 form__wrapper animated fadeInUp">
+
+        <!-- login -->
+        <form class="form__login" id="userLogin">
+            <div class="logo">FRIENDSmanago</div>
+          <div class="form-group">
+            <p class="form__header">
+              Zaloguj się na swoje konto:
+            </p>
+            <p class="error" id="login-error">
+              Podaj poprawne dane
+            </p>
+            <label for="userName">Twój adres email</label>
+            <input class="form-control" type="text" id="loginUserEmail" name="userName">
+
+            <label for="">Twoje hasło</label>
+            <input type="password" class="form-control" id="loginUserPassword">
+
+            <div class="btn__wrapper">
+
+              <button type="submit" id="loginUserBtn" class="btn btn__reg mt-2">Zaloguj się</button>
+
+              <span class="m-3 separator__login">lub</span>
+
+              <button type="button" id="showUserRegister" class="btn btn__back mt-2">Załóż konto</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- register -->
+        <form class="form__register" id="userRegister">
+          <div class="logo">FRIENDSmanago</div>
+          <p class="form__header">
+            Zarejestruj się
+          </p>
+
+          <p class="error" id="register-error">
+            Podaj poprawny email (imie.nazwisko.benhauer@gmail.com) i silne hasło.
+          </p>
+
+          <input type="text" class="form-control" id="registerUserName">
+
+          <label for="">Twój adres email</label>
+          <input type="text" class="form-control" id="registerUserEmail">
+
+          <label for="">Twoje hasło</label>
+          <input type="password" class="form-control" id="registerUserPassword">
+
+          <div class="btn__wrapper">
+
+            <button id="showUserLogin" class="btn btn__back mt-2">Cofnij</button>
+
+            <span class="m-3 separator__login">lub</span>
+
+            <button type="submit" id="registerUserBtn" class="btn btn__reg mt-2">Zarejestruj się</button>
+          </div>
+        </form>
+      </div>
+  </section>
+
+  <section id="app" class="container">
+    <nav class="app__nav navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="app__nav collapse navbar-collapse animated fadeInDown" id="navbarNav">
+        <div class="logo">FRIENDSmanago</div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="#" class="nav-link navbar-hidden" id="dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navbar-hidden" href="#" id="userProfile">Twój profil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navbar-hidden" href="#" id="userEditProfile">Edytuj profil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="userLogOut">Wyloguj</a>
+          </li>
         </ul>
       </div>
     </nav>
-  </header>
-  
+
+    <div class="app__body">
+      <section class="row justify-content-center" id="registerUserData" style="display:none">
+      </section>
+
+      <section class="row justify-content-center register__wrapper" id="registerDataContainer">
+        <div class="col-md-6">
+          <form id="userRegisterData" class="form__wrapper">
+            <div class="form-group">
+              <p class="form__header">
+                Witaj, wpisz swoje zainteresowania aby w pełni cieszyć się działaniem naszej aplikacji.
+              </p>
+
+              <label for="">Uczelnia:</label>
+              <input class="form-control" type="text" id="userRegisterSchool" required>
+
+              <label for="">Hobby</label>
+              <input class="form-control" type="text" id="userRegisterHobby" required>
+
+              <label for="">Umiejętności</label>
+              <input class="form-control" type="text" id="userRegisterSkills" required>
+
+              <label for="">Szalone umiejętności</label>
+              <input class="form-control" type="text" id="userRegisterCrazySkills" required>
+
+              <button class="btn btn__reg mt-2" type="submit" id="userDataSubmit">Zapisz swoje umiejętności</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="row justify-content-center edit__wrapper" id="editDataContainer" style="display:none">
+        <div class="col-md-6">
+          <form id="userEditData" class="form__wrapper">
+            <div class="form-group">
+              <p class="form__header">
+                Tutaj możesz edytować swoje dane.
+              </p>
+
+              <label for="">Uczelnia:</label>
+              <input class="form-control" type="text" id="userEditSchool" required>
+
+              <label for="">Hobby</label>
+              <input class="form-control" type="text" id="userEditHobby" required>
+
+              <label for="">Umiejętności</label>
+              <input class="form-control" type="text" id="userEditSkills" required>
+
+              <label for="">Szalone umiejętności</label>
+              <input class="form-control" type="text" id="userEditCrazySkills" required>
+
+              <button class="btn btn__reg mt-2" type="submit" id="userDataEditSubmit">Zapisz zmiany</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="row search-user">
+            <div class="col-md-12">
+              <div class="search-user__header">
+                <p>
+                  Lista użytkowników:
+                </p>
+              </div>
+              <div class="search-user__tooltip" id="chosenUsersList">
+
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 user-data__wrapper">
+              <ul class="">
+                <li>
+                  <div class="user-data__header"><i class="fas fa-graduation-cap animated rotateInDownRight"></i> Gdzie
+                    studiowali nasi pracownicy</div>
+                  <div class="tags-hook"></div>
+                </li>
+                <li>
+                  <div class="user-data__header"><i class="fas fa-skiing animated rotateInDownRight"></i> Hobby</div>
+                  <div class="tags-hook"></div>
+                </li>
+                <li>
+                  <div class="user-data__header"><i class="fas fa-chess animated rotateInDownRight"></i> Umiejętności
+                    naszych pracowników</div>
+                  <div class="tags-hook"></div>
+                </li>
+                <li>
+                  <div class="user-data__header"><i class="fas fa-theater-masks animated rotateInDownRight"></i>
+                    Szalone umiejętności naszych pracowników</div>
+                  <div class="tags-hook"></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+  </section>
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-firestore.js"></script>
+  <script>
+    var config = {
+      apiKey: "AIzaSyCO-IUAHgaQ_LzgP1fqOEu3hrLzYBkgcGk",
+      authDomain: "simple-user-base.firebaseapp.com",
+      databaseURL: "https://simple-user-base.firebaseio.com",
+      projectId: "simple-user-base"
+    };
+    firebase.initializeApp(config);
+
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+    <script src="dist/js/functions.js"></script>
+  <script src="dist/js/auth.js"></script>
+  <script src="dist/js/index.js"></script>
+  <script src="dist/js/app.js"></script>
+
 </body>
 
 </html>
