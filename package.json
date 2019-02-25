@@ -1,28 +1,34 @@
 {
-  "name": "a-team-hackhaton2019",
+  "name": "piotrbartnik.github.io",
   "version": "1.0.0",
-  "description": "Hackaton A-Team Project",
-  "main": "index.js",
+  "description": "Portfolio page",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-live-server": "0.0.31",
+    "gulp-load-all-tasks": "^0.2.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.1",
+    "node-sass": "^4.11.0"
+  },
   "scripts": {
-    "test": "test"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/piotrbartnik/a-team-hackhaton2019.git"
+    "url": "git+https://github.com/piotrbartnik/piotrbartnik.github.io.git"
   },
-  "author": "Marcin Olszewski, Piotr Bartnik",
+  "author": "Piotr Bartnik",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/piotrbartnik/a-team-hackhaton2019/issues"
+    "url": "https://github.com/piotrbartnik/piotrbartnik.github.io/issues"
   },
-  "homepage": "https://github.com/piotrbartnik/a-team-hackhaton2019#readme",
-  "dependencies": {
-    "gulp": "^4.0.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.3.3",
-    "@babel/preset-env": "^7.3.1",
-    "gulp-babel": "^8.0.0",
-    "gulp-uglify": "^3.0.1"
-  }
+  "homepage": "https://github.com/piotrbartnik/piotrbartnik.github.io#readme"
 }
